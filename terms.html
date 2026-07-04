@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="bn" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +49,11 @@
       border-bottom: 1px solid var(--border-color);
     }
   </style>
+  <noscript>
+    <style>
+      body { opacity: 1 !important; }
+    </style>
+  </noscript>
 </head>
 <body>
   
@@ -69,45 +74,44 @@
         </span>
         <span class="logo-text">Ecom <span class="logo-accent">Academy</span></span>
       </a>
-      <a href="index.html" class="btn btn-secondary btn-small">← Back to Home</a>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-secondary btn-small" data-i18n="back_to_home">← Back to Home</a>
+      </div>
     </div>
   </header>
-
+ 
   <!-- Content Section -->
   <main class="container">
     <div class="policy-content-wrapper">
       <article class="policy-card card-glass">
-        <h1 class="gradient-text">Terms of Use</h1>
+        <h1 class="gradient-text" data-i18n="terms_title">Terms of Use</h1>
         <p><em>Last Updated: June 22, 2026</em></p>
         
-        <p>Welcome to Ecom Academy. These Terms of Use govern your access to and use of our website, courses, student portals, and support groups. By enrolling in our courses or visiting our website, you agree to comply with these terms.</p>
+        <p data-i18n="terms_p1">Welcome to Ecom Academy. By accessing our website, purchasing our training programs, or using our course materials, you agree to comply with and be bound by the following Terms of Use. Please read these terms carefully before enrolling.</p>
         
-        <h2>1. User Registration & Eligibility</h2>
-        <p>To enroll in our courses, you must provide accurate, current, and complete details, including your full name, email address, and active WhatsApp number. You are responsible for ensuring the details you input remain correct.</p>
+        <h2 data-i18n="terms_h1">1. Educational License & Access</h2>
+        <p data-i18n="terms_p2">When you enroll in any course at Ecom Academy, you are granted a non-exclusive, non-transferable, single-user license to access and view the video lectures, download supplier lists, and review operational spreadsheets. This license is strictly for personal, educational use.</p>
         
-        <h2>2. Intellectual Property Rights</h2>
-        <p>All content provided by Ecom Academy—including recorded video lectures, spreadsheets, checklists, supplier contact lists, workbook resources, and graphics—is owned by or licensed to us. You are granted a limited, personal, non-transferable, and revocable license to access our materials for your own personal educational use.</p>
-        
-        <p><strong>Strict Prohibition:</strong> You must not copy, record, distribute, resell, upload to public sharing servers, or commercially exploit any course materials. Sharing your student account access credentials with other individuals is strictly forbidden and will result in immediate termination of access without a refund.</p>
-        
-        <h2>3. Student Conduct & Group Interactions</h2>
-        <p>We host active peer-support groups (via WhatsApp). By participating, you agree to interact respectfully with other students and staff. You must not:</p>
+        <h2 data-i18n="terms_h2">2. Anti-Piracy and Account Sharing Constraints</h2>
+        <p data-i18n="terms_p3">We take intellectual property theft very seriously. To protect the integrity of our course curriculum:</p>
         <ul>
-          <li>Send spam, advertisements, or promote third-party courses or tools.</li>
-          <li>Harass, abuse, or engage in toxic behaviors with other members.</li>
-          <li>Use the group to collect personal contact information of other students for lead generation.</li>
+          <li data-i18n="terms_li1">Sharing course credentials, distribution of downloadable Excel sheets, or selling supplier databases to third-parties is strictly prohibited.</li>
+          <li data-i18n="terms_li2">Our portal monitors concurrent login sessions. If automated systems detect a single account logging in from multiple geographic locations simultaneously, your account access will be suspended without a refund.</li>
+          <li data-i18n="terms_li3">Any student found distributing video tutorials or resources on external forums (such as Telegram channels, torrent sites, or drive links) will face legal action under applicable digital copyright laws.</li>
         </ul>
-        <p>We reserve the right to remove any student from our group support channels immediately if these rules are violated.</p>
         
-        <h2>4. Disclaimers & Earnings Limits</h2>
-        <p>Ecom Academy provides educational training designed to teach e-commerce seller methods. We do not guarantee specific financial results, store profits, or revenue generation. Your success depends on your implementation, product choices, marketing efforts, market demand, and external platforms (like Amazon, Flipkart, Meesho) whose operational rules can change over time.</p>
+        <h2 data-i18n="terms_h3">3. Supplier Database Disclaimer</h2>
+        <p data-i18n="terms_p4">While we make every effort to curate and verify wholesale contacts in Delhi, Mumbai, and other hubs, Ecom Academy does not guarantee the business practices, inventory levels, or pricing of these independent suppliers. Students are advised to conduct standard due diligence and check goods samples before making bulk payments.</p>
         
-        <h2>5. Amendments to Terms</h2>
-        <p>We reserve the right to revise and modify these terms at any time. Changes will take effect immediately upon being posted on this webpage. Continued use of our portal signifies your agreement to revised terms.</p>
+        <h2 data-i18n="terms_h4">4. Course Platform Availability</h2>
+        <p data-i18n="terms_p5">We aim for 99.9% uptime on our learning management platform. However, temporary service interruptions may occur due to regular server maintenance, software upgrades, or network issues. We will announce any planned downtime in advance in the WhatsApp group.</p>
+        
+        <h2 data-i18n="terms_h5">5. Governing Law</h2>
+        <p data-i18n="terms_p6">These Terms of Use and any disputes relating to our services shall be governed by and construed in accordance with the laws of India, with jurisdiction in Kolkata, West Bengal.</p>
       </article>
     </div>
   </main>
-
+ 
   <!-- Footer Section -->
   <footer class="footer">
     <div class="container footer-container">
@@ -122,40 +126,41 @@
           </span>
           <span class="logo-text">Ecom <span class="logo-accent">Academy</span></span>
         </a>
-        <p class="footer-about">
+        <p class="footer-about" data-i18n="footer_about">
           Ecom Academy empowers aspiring entrepreneurs to create and scale profitable digital stores in India. High quality, affordable instruction by real operators.
         </p>
       </div>
-
+ 
       <div class="footer-links-grid">
         <div class="footer-col">
-          <h4>Explore</h4>
+          <h4 data-i18n="footer_explore">Explore</h4>
           <ul>
-            <li><a href="index.html#courses">All Courses</a></li>
-            <li><a href="index.html#courses">Ecom Bundle</a></li>
-            <li><a href="index.html#about">Najmu Haque</a></li>
-            <li><a href="index.html#faqs">FAQs</a></li>
+            <li><a href="index.html#courses" data-i18n="tab_all">All Courses</a></li>
+            <li><a href="index.html#courses" data-i18n="course1_title">Ecom Bundle</a></li>
+            <li><a href="index.html#about" data-i18n="trainer_title">Najmul Haque</a></li>
+            <li><a href="index.html#faqs" data-i18n="nav_faqs">FAQs</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Legal</h4>
+          <h4 data-i18n="footer_legal">Legal</h4>
           <ul>
-            <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="refund.html">Refund Policy</a></li>
+            <li><a href="terms.html" data-i18n="footer_terms">Terms of Use</a></li>
+            <li><a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+            <li><a href="refund.html" data-i18n="footer_refund">Refund Policy</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Support</h4>
-          <p class="support-email">📧 support@ecomacademy.com</p>
-          <p class="support-address">📍 Ecospace, Newtown, Kolkata - 70160</p>
+          <h4 data-i18n="footer_support">Support</h4>
+          <p class="support-email" data-i18n="support_email">📧 support@ecomacademy.com</p>
+          <p class="support-address" data-i18n="support_address">📍 Ecospace, Newtown, Kolkata - 70160</p>
         </div>
       </div>
     </div>
     
     <div class="footer-bottom text-center">
-      <p>&copy; 2026 Ecom Academy. All Rights Reserved. Created for Najmu Haque.</p>
+      <p data-i18n="footer_copyright">&copy; 2026 Ecom Academy. All Rights Reserved. Created for Najmul Haque.</p>
     </div>
   </footer>
+  <script src="script.js" type="module"></script>
 </body>
 </html>

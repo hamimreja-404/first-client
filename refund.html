@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="bn" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +49,11 @@
       border-bottom: 1px solid var(--border-color);
     }
   </style>
+  <noscript>
+    <style>
+      body { opacity: 1 !important; }
+    </style>
+  </noscript>
 </head>
 <body>
   
@@ -69,52 +74,47 @@
         </span>
         <span class="logo-text">Ecom <span class="logo-accent">Academy</span></span>
       </a>
-      <a href="index.html" class="btn btn-secondary btn-small">← Back to Home</a>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-secondary btn-small" data-i18n="back_to_home">← Back to Home</a>
+      </div>
     </div>
   </header>
-
+ 
   <!-- Content Section -->
   <main class="container">
     <div class="policy-content-wrapper">
       <article class="policy-card card-glass">
-        <h1 class="gradient-text">Refund Policy</h1>
+        <h1 class="gradient-text" data-i18n="refund_title">Refund Policy</h1>
         <p><em>Last Updated: June 22, 2026</em></p>
         
-        <p>We stand by the quality of our training courses. We believe in providing practical, actionable mentorship to help you start your e-commerce journey. To give you peace of mind, we provide a structured refund policy.</p>
+        <p data-i18n="refund_p1">At Ecom Academy, we stand behind the quality of our practical training. We want to ensure you have a risk-free learning experience, which is why we offer a clear refund policy.</p>
         
-        <h2>1. 7-Day Money-Back Guarantee</h2>
-        <p>We offer a <strong>7-day money-back guarantee</strong> starting from your date of course enrollment. If you feel the course is not a fit for your needs, you can claim a full refund during this period, subject to the eligibility terms outlined below.</p>
+        <h2 data-i18n="refund_h1">1. 7-Day Guarantee Duration</h2>
+        <p data-i18n="refund_p2">We offer a hassle-free 7-day money-back guarantee. If you purchase a course and decide it isn't the right fit for you, you can request a full refund within 7 calendar days of your purchase timestamp.</p>
         
-        <h2>2. Refund Eligibility Criteria</h2>
-        <p>To prevent piracy and abuse of our digital learning resources, a refund request will be approved only if:</p>
+        <h2 data-i18n="refund_h2">2. Eligibility & Fair Use Criteria</h2>
+        <p data-i18n="refund_p3">To prevent abuse of our educational resources and protect our proprietary supplier catalogs, refunds are subject to the following fair use conditions:</p>
         <ul>
-          <li>You apply within 7 days of purchase.</li>
-          <li>You have completed/watched <strong>less than 20%</strong> of the total course video content.</li>
-          <li>You have not downloaded our premium proprietary lists (such as the 800+ Sourced Winning Products Database or Wholesaler Contact Sheets).</li>
+          <li data-i18n="refund_li1">Your account progression must show that you have watched less than 20% of the total course video lectures.</li>
+          <li data-i18n="refund_li2">You must not have downloaded the spreadsheet calculators or the 800+ winning product supplier database. Once these resources are downloaded, the purchase is non-refundable.</li>
+          <li data-i18n="refund_li3">Refunds do not apply to live workshops or custom consultation calls that have already been conducted.</li>
         </ul>
         
-        <h2>3. Non-Refundable Situations</h2>
-        <p>Refunds will not be issued under the following circumstances:</p>
+        <h2 data-i18n="refund_h3">3. Refund Request Procedure</h2>
+        <p data-i18n="refund_p4">To initiate a refund request, please send an email to support@ecomacademy.com from the email address you used during enrollment. Please include:</p>
         <ul>
-          <li>Requests made after 7 days have elapsed from the purchase timestamp.</li>
-          <li>Accounts flagged or suspended due to violation of our Terms of Use (such as account sharing, video recording, or spamming student support groups).</li>
-          <li>Stating lack of time, changing your mind, or choosing not to implement the seller practices taught.</li>
+          <li data-i18n="refund_li4">Your Full Name & WhatsApp Phone Number.</li>
+          <li data-i18n="refund_li5">The name of the course you want a refund for.</li>
+          <li data-i18n="refund_li6">Your purchase receipt or screenshot.</li>
+          <li data-i18n="refund_li7">A brief explanation of why the course did not meet your expectations (this feedback helps us improve our syllabus).</li>
         </ul>
         
-        <h2>4. How to Request a Refund</h2>
-        <p>To submit a refund claim, please follow these steps:</p>
-        <ol style="margin-left: 20px; margin-bottom: 20px; color: var(--text-secondary); line-height: 1.7;">
-          <li style="margin-bottom: 8px;">Email our support team at: <strong>support@ecomacademy.com</strong>.</li>
-          <li style="margin-bottom: 8px;">Use the subject line: <strong>Refund Request - [Your Full Name]</strong>.</li>
-          <li style="margin-bottom: 8px;">In the email body, provide your registered purchase email address, mobile number, invoice copy, and a brief description of why the course did not meet your expectations.</li>
-        </ol>
-        
-        <h2>5. Processing and Payment Timelines</h2>
-        <p>Once your request is received, our audit team will verify your course progression analytics. If eligible, your refund will be approved and initiated within 3-5 business days. The funds will be credited back via your original payment method (UPI, net banking, or credit/debit card) according to standard banking clearing timelines (usually 5-7 business days).</p>
+        <h2 data-i18n="refund_h4">4. Processing Timeline</h2>
+        <p data-i18n="refund_p5">Once we verify your eligibility under the criteria above, we will approve your refund. The funds will be credited back to your original payment method (bank account, UPI, card) within 5 to 7 business days, depending on bank processing speeds.</p>
       </article>
     </div>
   </main>
-
+ 
   <!-- Footer Section -->
   <footer class="footer">
     <div class="container footer-container">
@@ -129,40 +129,41 @@
           </span>
           <span class="logo-text">Ecom <span class="logo-accent">Academy</span></span>
         </a>
-        <p class="footer-about">
+        <p class="footer-about" data-i18n="footer_about">
           Ecom Academy empowers aspiring entrepreneurs to create and scale profitable digital stores in India. High quality, affordable instruction by real operators.
         </p>
       </div>
-
+ 
       <div class="footer-links-grid">
         <div class="footer-col">
-          <h4>Explore</h4>
+          <h4 data-i18n="footer_explore">Explore</h4>
           <ul>
-            <li><a href="index.html#courses">All Courses</a></li>
-            <li><a href="index.html#courses">Ecom Bundle</a></li>
-            <li><a href="index.html#about">Najmu Haque</a></li>
-            <li><a href="index.html#faqs">FAQs</a></li>
+            <li><a href="index.html#courses" data-i18n="tab_all">All Courses</a></li>
+            <li><a href="index.html#courses" data-i18n="course1_title">Ecom Bundle</a></li>
+            <li><a href="index.html#about" data-i18n="trainer_title">Najmul Haque</a></li>
+            <li><a href="index.html#faqs" data-i18n="nav_faqs">FAQs</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Legal</h4>
+          <h4 data-i18n="footer_legal">Legal</h4>
           <ul>
-            <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="refund.html">Refund Policy</a></li>
+            <li><a href="terms.html" data-i18n="footer_terms">Terms of Use</a></li>
+            <li><a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+            <li><a href="refund.html" data-i18n="footer_refund">Refund Policy</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Support</h4>
-          <p class="support-email">📧 support@ecomacademy.com</p>
-          <p class="support-address">📍 Ecospace, Newtown, Kolkata - 70160</p>
+          <h4 data-i18n="footer_support">Support</h4>
+          <p class="support-email" data-i18n="support_email">📧 support@ecomacademy.com</p>
+          <p class="support-address" data-i18n="support_address">📍 Ecospace, Newtown, Kolkata - 70160</p>
         </div>
       </div>
     </div>
     
     <div class="footer-bottom text-center">
-      <p>&copy; 2026 Ecom Academy. All Rights Reserved. Created for Najmu Haque.</p>
+      <p data-i18n="footer_copyright">&copy; 2026 Ecom Academy. All Rights Reserved. Created for Najmul Haque.</p>
     </div>
   </footer>
+  <script src="script.js" type="module"></script>
 </body>
 </html>

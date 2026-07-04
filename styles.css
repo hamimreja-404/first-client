@@ -96,6 +96,12 @@ body {
   overflow-x: hidden;
   transition: background-color 0.4s ease, color 0.4s ease;
   position: relative;
+  opacity: 0;
+}
+
+body.loaded {
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out, background-color 0.4s ease, color 0.4s ease;
 }
 
 .container {
@@ -407,6 +413,8 @@ img {
 [data-theme="light"] .theme-icon-dark {
   display: none;
 }
+
+
 
 /* Mobile Toggle Hamburger */
 .mobile-toggle {
