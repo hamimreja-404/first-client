@@ -6,7 +6,7 @@ import Trainer from '../components/Trainer.jsx';
 import Testimonials from '../components/Testimonials.jsx';
 import FAQs from '../components/FAQs.jsx';
 
-function Home({ lang, setView, setDetailCourseId, setCheckoutCourse }) {
+function Home({ lang, setView, setDetailCourseId, setCheckoutCourse, showToast }) {
   
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
@@ -28,7 +28,7 @@ function Home({ lang, setView, setDetailCourseId, setCheckoutCourse }) {
       />
       <Skills lang={lang} />
       <Trainer lang={lang} />
-      <Testimonials lang={lang} />
+      <Testimonials lang={lang} showToast={showToast} />
       <FAQs lang={lang} />
     </>
   );

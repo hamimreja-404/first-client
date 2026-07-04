@@ -74,7 +74,11 @@ function Navbar({ lang, setLang, theme, setTheme, setView, currentView }) {
             }} 
           />
           <span className="logo-text" style={{ fontSize: '1.4rem', fontWeight: '800' }}>
-            Ecom <span className="logo-accent">Academy / Bengali</span>
+            {lang === 'bn' ? (
+              <>ইকম <span className="logo-accent">একাডেমি</span></>
+            ) : (
+              <>Ecom <span className="logo-accent">Academy</span></>
+            )}
           </span>
         </a>
 
@@ -96,6 +100,19 @@ function Navbar({ lang, setLang, theme, setTheme, setView, currentView }) {
                 onClick={(e) => handleNavClick('courses', e)}
               >
                 {t.nav_courses}
+              </a>
+            </li>
+            <li>
+              <a 
+                href="/products" 
+                className={`nav-link ${currentView === 'products' ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileActive(false);
+                  setView('products');
+                }}
+              >
+                {t.nav_products}
               </a>
             </li>
             <li>

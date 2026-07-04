@@ -6,6 +6,7 @@ export const contents = {
       nav_courses: "Courses",
       nav_about: "About Trainer",
       nav_faqs: "FAQs",
+      nav_products: "Products",
       back_to_home: "← Back to Home",
       support_email: "support@ecomacademy.com",
       support_address: "Ecospace, Newtown, Kolkata - 700160",
@@ -104,6 +105,19 @@ export const contents = {
       footer_refund: "Refund Policy",
       footer_copyright: "&copy; 2026 Ecom Academy. All rights reserved. Managed by Najmul Haque.",
 
+      // Access Gate Modal
+      access_title: "Unlock Ecom Academy",
+      access_subtitle: "Please enter your details to unlock full access to our learning platform and courses.",
+      access_lbl_name: "Your Full Name",
+      access_lbl_phone: "WhatsApp Contact Number",
+      access_lbl_course: "Course of Interest",
+      access_ph_name: "Enter your legal name",
+      access_ph_phone: "10-digit mobile number",
+      access_select_course: "Select a course you are interested in...",
+      access_other_specify: "Specify Other Course / Service (Optional)",
+      access_btn_submit: "Unlock Access Now",
+      access_other_option: "Other Course / Service",
+
       // Checkout Modal
       checkout_title: "Secure Enrollment",
       checkout_summary: "Order Details",
@@ -189,6 +203,7 @@ export const contents = {
       nav_courses: "কোর্সসমূহ",
       nav_about: "মেন্টর পরিচিতি",
       nav_faqs: "জিজ্ঞাসা (FAQ)",
+      nav_products: "প্রোডাক্টস",
       back_to_home: "← হোমে ফিরে যান",
       support_email: "support@ecomacademy.com",
       support_address: "ইকোপেস, নিউটাউন, কলকাতা - ৭০০১৬০",
@@ -286,6 +301,19 @@ export const contents = {
       footer_privacy: "গোপনীয়তা নীতি",
       footer_refund: "রিফান্ড নীতি",
       footer_copyright: "&copy; ২০২৬ ইকম একাডেমি। সর্বস্বত্ব সংরক্ষিত। নাজমুল হক দ্বারা পরিচালিত।",
+
+      // Access Gate Modal
+      access_title: "ইকম একাডেমিতে প্রবেশ করুন",
+      access_subtitle: "আমাদের লার্নিং প্ল্যাটফর্ম এবং কোর্সগুলোর সম্পূর্ণ অ্যাক্সেস পেতে অনুগ্রহ করে ফর্মটি পূরণ করুন।",
+      access_lbl_name: "আপনার সম্পূর্ণ নাম",
+      access_lbl_phone: "হোয়াটসঅ্যাপ নম্বর",
+      access_lbl_course: "আগ্রহী কোর্স",
+      access_ph_name: "আপনার সঠিক নাম লিখুন",
+      access_ph_phone: "১০-সংখ্যার সচল মোবাইল নম্বর",
+      access_select_course: "আপনি যে কোর্সে আগ্রহী তা নির্বাচন করুন...",
+      access_other_specify: "অন্যান্য কোর্স / সার্ভিসের নাম লিখুন (ঐচ্ছিক)",
+      access_btn_submit: "প্ল্যাটফর্মে প্রবেশ করুন",
+      access_other_option: "অন্যান্য কোর্স / সার্ভিস",
 
       // Checkout Modal
       checkout_title: "নিরাপদ এনরোলমেন্ট",

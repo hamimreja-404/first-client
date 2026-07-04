@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { contents } from '../contents';
 
-function Testimonials({ lang }) {
+function Testimonials({ lang, showToast }) {
   const t = contents.translations[lang];
   
   // State for active testimonial index
@@ -50,6 +51,21 @@ function Testimonials({ lang }) {
     return () => clearInterval(interval);
   }, [testimonialsList.length, isHovered, formOpen]);
 
+  // Lock body & html scrolling when review form modal is open
+  useEffect(() => {
+    if (formOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [formOpen]);
+
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % testimonialsList.length);
   };
@@ -92,31 +108,20 @@ function Testimonials({ lang }) {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     
-    const newTestimonial = {
-      image: photoPreview || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&h=150&q=80",
-      rating: parseInt(rating),
-      en: {
-        quote: review,
-        author: name,
-        meta: location
-      },
-      bn: {
-        quote: review,
-        author: name,
-        meta: location
-      }
-    };
-
-    const updatedList = [...testimonialsList, newTestimonial];
-    setTestimonialsList(updatedList);
-    setActiveIndex(updatedList.length - 1);
-    
     setName('');
     setLocation('');
     setRating(5);
     setReview('');
     setPhotoPreview('');
     setFormOpen(false);
+
+    const thankYouMsg = lang === 'bn' 
+      ? 'রিভিউ দেওয়ার জন্য ধন্যবাদ! আপনার মতামত সফলভাবে জমা হয়েছে।' 
+      : 'Thank You for your review! Your feedback has been submitted successfully.';
+    
+    if (showToast) {
+      showToast(thankYouMsg);
+    }
   };
 
   // Get responsive dynamic card styling for the 3D layered look
@@ -300,7 +305,7 @@ function Testimonials({ lang }) {
               display: none !important;
             }
           }
-          @media (max-width: 480px) {
+          @media (max-width: 550px) {
             .review-modal-form-grid {
               grid-template-columns: 1fr !important;
               gap: 12px !important;
@@ -341,9 +346,9 @@ function Testimonials({ lang }) {
         </div>
 
         {/* Pop Up Form Modal */}
-        {formOpen && (
+        {formOpen && createPortal(
           <div className="modal-backdrop active" onClick={() => setFormOpen(false)}>
-            <div className="modal card-glass" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '550px' }}>
+            <div className="modal card-glass" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '550px', margin: 'auto' }}>
               <button className="modal-close" onClick={() => setFormOpen(false)}>&times;</button>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '24px', textAlign: 'center', fontWeight: '700' }}>
                 {l.formTitle}
@@ -452,7 +457,8 @@ function Testimonials({ lang }) {
                 </button>
               </form>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
 
         {/* 3D Layered Carousel Deck */}

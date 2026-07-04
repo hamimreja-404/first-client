@@ -3,21 +3,37 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import DetailModal from './components/DetailModal.jsx';
 import CheckoutModal from './components/CheckoutModal.jsx';
+import AccessModal from './components/AccessModal.jsx';
 
 // Pages
 import Home from './pages/Home.jsx';
 import Privacy from './pages/Privacy.jsx';
 import Terms from './pages/Terms.jsx';
 import Refund from './pages/Refund.jsx';
+import Products from './pages/Products.jsx';
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
   const [lang, setLang] = useState('bn');
+  const [hasAccess, setHasAccess] = useState(() => {
+    return localStorage.getItem('hasAccessFormSubmitted') === 'true';
+  });
+  const [toast, setToast] = useState(null);
+
+  // Auto-dismiss toast
+  useEffect(() => {
+    if (!toast) return;
+    const timer = setTimeout(() => {
+      setToast(null);
+    }, 3500);
+    return () => clearTimeout(timer);
+  }, [toast]);
   const [view, setView] = useState(() => {
     const path = window.location.pathname;
     if (path === '/privacy') return 'privacy';
     if (path === '/terms') return 'terms';
     if (path === '/refund') return 'refund';
+    if (path === '/products') return 'products';
     return 'home';
   });
 
@@ -27,6 +43,7 @@ function App() {
     if (newView === 'privacy') path = '/privacy';
     else if (newView === 'terms') path = '/terms';
     else if (newView === 'refund') path = '/refund';
+    else if (newView === 'products') path = '/products';
     
     if (window.location.pathname !== path) {
       window.history.pushState({}, '', path);
@@ -43,9 +60,16 @@ function App() {
   const [showBotTip, setShowBotTip] = useState(true);
   const [tipMessageIndex, setTipMessageIndex] = useState(0);
 
-  // Set body class to loaded on mount
+  // Set body class to loaded on mount & handle developer reset parameter
   useEffect(() => {
     document.body.classList.add('loaded');
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('reset') === 'true') {
+      localStorage.removeItem('hasAccessFormSubmitted');
+      localStorage.removeItem('accessUserData');
+      window.location.replace(window.location.pathname);
+    }
   }, []);
 
   // Sync browser back/forward buttons with active routing view
@@ -55,6 +79,7 @@ function App() {
       if (path === '/privacy') setView('privacy');
       else if (path === '/terms') setView('terms');
       else if (path === '/refund') setView('refund');
+      else if (path === '/products') setView('products');
       else setView('home');
     };
     window.addEventListener('popstate', handlePopState);
@@ -77,6 +102,29 @@ function App() {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [view]);
+
+  // Lock body & html scrolling when any modal is active
+  useEffect(() => {
+    const isModalOpen = !hasAccess || !!detailCourseId || !!checkoutCourse;
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [hasAccess, detailCourseId, checkoutCourse]);
+
+  const handleAccessSubmit = (userData) => {
+    localStorage.setItem('hasAccessFormSubmitted', 'true');
+    localStorage.setItem('accessUserData', JSON.stringify(userData));
+    setHasAccess(true);
+    setToast(lang === 'bn' ? 'ধন্যবাদ! অ্যাক্সেস সফলভাবে আনলক করা হয়েছে।' : 'Thank You! Access successfully unlocked.');
+  };
 
   // Scroll listener to toggle floating support pill (visible once scrolled past Hero section)
   useEffect(() => {
@@ -176,6 +224,8 @@ function App() {
         return <Terms lang={lang} />;
       case 'refund':
         return <Refund lang={lang} />;
+      case 'products':
+        return <Products lang={lang} />;
       case 'home':
       default:
         return (
@@ -184,6 +234,7 @@ function App() {
             setView={navigateTo}
             setDetailCourseId={setDetailCourseId}
             setCheckoutCourse={setCheckoutCourse}
+            showToast={setToast}
           />
         );
     }
@@ -438,6 +489,57 @@ function App() {
           lang={lang}
           onClose={() => setCheckoutCourse(null)}
         />
+      )}
+
+      {/* Access Gating Modal */}
+      {!hasAccess && (
+        <AccessModal
+          lang={lang}
+          setLang={setLang}
+          onSubmit={handleAccessSubmit}
+        />
+      )}
+
+      {/* Toast Notification */}
+      {toast && (
+        <div 
+          style={{
+            position: 'fixed',
+            bottom: '30px',
+            right: '30px',
+            background: 'rgba(11, 15, 25, 0.95)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid var(--color-accent)',
+            boxShadow: '0 10px 30px rgba(16, 185, 129, 0.25)',
+            padding: '16px 24px',
+            borderRadius: '12px',
+            zIndex: 1000000,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            color: 'var(--text-primary)',
+            animation: 'slideInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            fontWeight: '600',
+            fontSize: '0.95rem'
+          }}
+        >
+          <div style={{
+            width: '24px',
+            height: '24px',
+            borderRadius: '50%',
+            background: 'rgba(16, 185, 129, 0.15)',
+            color: 'var(--color-accent)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span>{toast}</span>
+        </div>
       )}
     </>
   );
