@@ -37,7 +37,7 @@ export const contents = {
 
       // Catalog Header
       catalog_badge: "Our Catalog",
-      catalog_title: "Premium Learning Paths",
+      catalog_title: "Get to know our training courses",
       catalog_subtitle: "Choose a targeted marketplace module or unlock our all-in-one combo plan to fast-track your business growth.",
       
       // Filter Tabs
@@ -234,7 +234,7 @@ export const contents = {
 
       // Catalog Header
       catalog_badge: "আমাদের ক্যাটালগ",
-      catalog_title: "প্রিমিয়াম লার্নিং পাথ",
+      catalog_title: "আমাদের ট্রেনিং কোর্সের সাথে পরিচিত হন",
       catalog_subtitle: "আপনার পছন্দমতো নির্দিষ্ট কোনো মার্কেটপ্লেস মডিউল বেছে নিন অথবা দ্রুত ই-কমার্স যাত্রা শুরু করতে আমাদের অল-ইন-ওয়ান কম্বো প্ল্যানটি আনলক করুন।",
       
       // Filter Tabs

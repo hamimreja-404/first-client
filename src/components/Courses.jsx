@@ -49,26 +49,7 @@ function Courses({ lang, onSelectDetailCourse, onSelectCheckoutCourse }) {
         </div>
 
         {/* Filter Tabs with Reveal Animation */}
-        <div className="filter-tabs reveal delay-100" style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '40px', flexWrap: 'wrap' }}>
-          <button 
-            className={`filter-tab ${activeTab === 'all' ? 'active' : ''}`}
-            onClick={() => setActiveTab('all')}
-          >
-            {t.tab_all}
-          </button>
-          <button 
-            className={`filter-tab ${activeTab === 'bundle' ? 'active' : ''}`}
-            onClick={() => setActiveTab('bundle')}
-          >
-            {t.tab_bundle}
-          </button>
-          <button 
-            className={`filter-tab ${activeTab === 'marketplaces' ? 'active' : ''}`}
-            onClick={() => setActiveTab('marketplaces')}
-          >
-            {t.tab_marketplaces}
-          </button>
-        </div>
+
 
         {/* Courses Cards Grid */}
         <div className="courses-grid" id="courses-grid">
