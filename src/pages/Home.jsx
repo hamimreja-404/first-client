@@ -6,7 +6,7 @@ import Trainer from '../components/Trainer.jsx';
 import Testimonials from '../components/Testimonials.jsx';
 import FAQs from '../components/FAQs.jsx';
 
-function Home({ lang, setView, setDetailCourseId, setCheckoutCourse, showToast }) {
+function Home({ lang, setView, setDetailCourseId, setCheckoutCourse, showToast, onJoinLive }) {
   
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
@@ -19,7 +19,7 @@ function Home({ lang, setView, setDetailCourseId, setCheckoutCourse, showToast }
         lang={lang}
         onExploreCourses={() => handleScrollTo('courses')}
         onMeetCoach={() => handleScrollTo('about')}
-        onJoinLive={() => setDetailCourseId('workshop')}
+        onJoinLive={onJoinLive}
       />
       <Courses 
         lang={lang}

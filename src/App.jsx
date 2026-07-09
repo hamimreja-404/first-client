@@ -4,6 +4,7 @@ import Footer from './components/Footer.jsx';
 import DetailModal from './components/DetailModal.jsx';
 import CheckoutModal from './components/CheckoutModal.jsx';
 import AccessModal from './components/AccessModal.jsx';
+import LiveModal from './components/LiveModal.jsx';
 
 // Pages
 import Home from './pages/Home.jsx';
@@ -54,6 +55,7 @@ function App() {
   // Modal states
   const [detailCourseId, setDetailCourseId] = useState(null);
   const [checkoutCourse, setCheckoutCourse] = useState(null);
+  const [showLiveModal, setShowLiveModal] = useState(false);
 
   // Floating Support states
   const [showFloatingSupport, setShowFloatingSupport] = useState(false);
@@ -105,7 +107,7 @@ function App() {
 
   // Lock body & html scrolling when any modal is active
   useEffect(() => {
-    const isModalOpen = !hasAccess || !!detailCourseId || !!checkoutCourse;
+    const isModalOpen = !hasAccess || !!detailCourseId || !!checkoutCourse || showLiveModal;
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
@@ -117,7 +119,7 @@ function App() {
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
     };
-  }, [hasAccess, detailCourseId, checkoutCourse]);
+  }, [hasAccess, detailCourseId, checkoutCourse, showLiveModal]);
 
   const handleAccessSubmit = (userData) => {
     localStorage.setItem('hasAccessFormSubmitted', 'true');
@@ -235,6 +237,7 @@ function App() {
             setDetailCourseId={setDetailCourseId}
             setCheckoutCourse={setCheckoutCourse}
             showToast={setToast}
+            onJoinLive={() => setShowLiveModal(true)}
           />
         );
     }
@@ -303,7 +306,7 @@ function App() {
       </main>
 
       {/* Footer Area */}
-      <Footer lang={lang} setView={navigateTo} />
+      <Footer lang={lang} setView={navigateTo} showToast={setToast} />
 
       {/* Scroll-Reactive Floating Support Helpline Container (Bottom Left) */}
       {showFloatingSupport && (
@@ -491,6 +494,18 @@ function App() {
         />
       )}
 
+      {/* Live Zoom Registration Modal */}
+      {showLiveModal && (
+        <LiveModal
+          lang={lang}
+          onClose={() => setShowLiveModal(false)}
+          onSubmit={(data) => {
+            setShowLiveModal(false);
+            setToast(lang === 'bn' ? 'সফলভাবে নিবন্ধিত হয়েছে!' : 'Successfully registered for the live session!');
+          }}
+        />
+      )}
+
       {/* Access Gating Modal */}
       {!hasAccess && (
         <AccessModal
@@ -507,17 +522,17 @@ function App() {
             position: 'fixed',
             bottom: '30px',
             right: '30px',
-            background: 'rgba(11, 15, 25, 0.95)',
+            background: theme === 'light' ? '#f3f4f6' : '#0a0a0a',
             backdropFilter: 'blur(12px)',
-            border: '1px solid var(--color-accent)',
-            boxShadow: '0 10px 30px rgba(16, 185, 129, 0.25)',
+            border: theme === 'light' ? '1px solid #d1d5db' : '1px solid #333333',
+            boxShadow: theme === 'light' ? '0 10px 30px rgba(0, 0, 0, 0.08)' : '0 10px 30px rgba(0, 0, 0, 0.5)',
             padding: '16px 24px',
             borderRadius: '12px',
             zIndex: 1000000,
             display: 'flex',
             alignItems: 'center',
             gap: '12px',
-            color: 'var(--text-primary)',
+            color: theme === 'light' ? '#000000' : '#ffffff',
             animation: 'slideInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             fontWeight: '600',
             fontSize: '0.95rem'
@@ -527,8 +542,8 @@ function App() {
             width: '24px',
             height: '24px',
             borderRadius: '50%',
-            background: 'rgba(16, 185, 129, 0.15)',
-            color: 'var(--color-accent)',
+            background: theme === 'light' ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.1)',
+            color: theme === 'light' ? '#000000' : '#ffffff',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

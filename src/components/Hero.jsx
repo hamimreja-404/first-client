@@ -64,7 +64,7 @@ function Hero({ lang, onExploreCourses, onMeetCoach, onJoinLive }) {
       <div className="container hero-container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Left Column - Information Heading & Benefits */}
         <div className="hero-content reveal reveal-left">
-          <div className="badge badge-primary">{t.hero_badge}</div>
+          {/* <div className="badge badge-primary">{t.hero_badge}</div> */}
           
           <h1 
             className="hero-title"

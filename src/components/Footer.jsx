@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { contents } from '../contents';
 
-function Footer({ lang, setView }) {
+function Footer({ lang, setView, showToast }) {
   const t = contents.translations[lang];
+  const [email, setEmail] = useState('');
 
   const handleNavClick = (sectionId, e) => {
     e.preventDefault();
@@ -89,7 +90,11 @@ function Footer({ lang, setView }) {
                 }} 
               />
               <span className="logo-text" style={{ fontSize: '1.4rem', fontWeight: '800' }}>
-                Ecom <span className="logo-accent">Academy / Bengali</span>
+                {lang === 'bn' ? (
+              <>ইকম <span className="logo-accent">একাডেমি</span></>
+            ) : (
+              <>Ecom <span className="logo-accent">Academy</span></>
+            )}
               </span>
             </a>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: '1.65', margin: 0 }}>
@@ -174,10 +179,22 @@ function Footer({ lang, setView }) {
             </p>
             
             {/* Newsletter input layout */}
-            <div style={{ display: 'flex', gap: '8px', position: 'relative' }}>
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (email.trim() && showToast) {
+                  showToast(lang === 'bn' ? 'নিউজলেটার সাবস্ক্রিপশন সফল হয়েছে!' : 'Subscribed to newsletter successfully!');
+                  setEmail('');
+                }
+              }}
+              style={{ display: 'flex', gap: '8px', position: 'relative' }}
+            >
               <input 
                 type="email" 
                 placeholder={emailPlaceholder} 
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 style={{ 
                   background: 'var(--bg-secondary)', 
                   border: '1px solid var(--border-color)', 
@@ -192,13 +209,14 @@ function Footer({ lang, setView }) {
                 }} 
               />
               <button 
+                type="submit"
                 className="btn btn-primary"
                 style={{ borderRadius: 'var(--border-radius-sm)', padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 aria-label="Subscribe"
               >
                 ➔
               </button>
-            </div>
+            </form>
             
             {/* Contact details */}
             <div style={{ marginTop: '12px', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>

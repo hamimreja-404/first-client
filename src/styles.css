@@ -41,7 +41,7 @@
   /* Fluid Spacing & Typography variables */
   --fs-hero-title: clamp(2.2rem, 5vw + 1rem, 3.5rem);
   --fs-section-title: clamp(1.8rem, 4vw + 1rem, 2.5rem);
-  --section-padding: clamp(40px, 6vw, 80px);
+  --section-padding: clamp(20px, 6vw, 30px);
   --container-padding: clamp(16px, 3vw, 24px);
 
   /* Footer Colors (Dark Mode) */
@@ -440,7 +440,7 @@ img {
 /* --- HERO SECTION --- */
 .hero {
   padding-top: clamp(80px, 8vw, 110px);
-  padding-bottom: var(--section-padding);
+  padding-bottom: 50px;
 }
 
 .hero-container {
@@ -606,7 +606,7 @@ img {
 
 /* --- COURSES SECTION --- */
 .courses-section {
-  padding: var(--section-padding) 0;
+  padding: 0 0 var(--section-padding) 0;
 }
 
 .filter-tabs {
